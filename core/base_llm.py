@@ -1,9 +1,12 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
-from .schemas import Message, ChatResponse
+from core.schemas import Message, ChatResponse
+
 
 class BaseLLM(ABC):
-    def __init__(self, api_key: str, model_name: str, base_url: Optional[str] = None, **kwargs):
+    def __init__(
+        self, api_key: str, model_name: str, base_url: Optional[str] = None, **kwargs
+    ):
         self.api_key = api_key
         self.model_name = model_name
         self.base_url = base_url
@@ -22,4 +25,3 @@ class BaseLLM(ABC):
     async def achat(self, messages: List[Message], **kwargs) -> ChatResponse:
         """异步对话接口，适合高并发的 Agent 场景"""
         pass
-    
