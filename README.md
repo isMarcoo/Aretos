@@ -11,3 +11,12 @@ saved in Aretos/.env
 - **pytest:** conda install pytest # 8.4.2
 - **pytest-asyncio:** conda install pytest-asyncio # 1.0.0
 - **python-dotenv:** conda install python-dotenv # 1.1.0
+
+## Plan
+### complete
+- Implement llm apis: deepseek, glm, moonshot, qwen
+### Next
+- Design and complete state machine structure
+- Design and complete Memory management
+- Design Agent`s skill and develop some skills
+- comming...
