@@ -3,16 +3,17 @@ import pytest
 import os
 from models.deepseek import DeepSeekLLM
 from models.glm import GLMLLM
+from models.qwen import QwenLLM
 from core.schemas import Message
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
-@pytest.mark.skipif(not os.getenv("GLM_API_KEY"), reason="未设置 API Key")
+@pytest.mark.skipif(not os.getenv("QWEN_API_KEY"), reason="未设置 API Key")
 def test_llm_real_chat():
-    api_key = os.getenv("GLM_API_KEY")
-    llm = GLMLLM(api_key=api_key)
+    api_key = os.getenv("QWEN_API_KEY")
+    llm = QwenLLM(api_key=api_key)
 
     messages = [Message(role="user", content="回复‘收到’")]
     response = llm.chat(messages)
@@ -25,8 +26,8 @@ def test_llm_real_chat():
 
 @pytest.mark.asyncio
 async def test_llm_real_achat():
-    api_key = os.getenv("GLM_API_KEY")
-    llm = GLMLLM(api_key=api_key)
+    api_key = os.getenv("QWEN_API_KEY")
+    llm = QwenLLM(api_key=api_key)
 
     messages = [Message(role="user", content="你好")]
     # 测试异步接口
